@@ -1,6 +1,6 @@
 {
 	"name": "@recodive/seasonal-branding",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "bin/index.js",
 	"types": "bin/index.d.ts",
 	"repository": "https://github.com/Recodive/Seasonal-Branding.git",

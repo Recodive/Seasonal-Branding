@@ -8,7 +8,7 @@ import isValentine from "./functions/isValentine";
 
 export type SeasonalEvents =
 	| "New Year's Day"
-	| "Chinese New Year"
+	| "Lunar New Year"
 	| "Valentine's Day"
 	| "Easter"
 	| "April Fools"
@@ -18,7 +18,7 @@ export type SeasonalEvents =
 
 export function getSeasonalBranding(): SeasonalEvents {
 	if (isNewYear()) return "New Year's Day";
-	if (isLunarNewYear()) return "Chinese New Year";
+	if (isLunarNewYear()) return "Lunar New Year";
 	if (isValentine()) return "Valentine's Day";
 	if (isEaster()) return "Easter";
 	if (isAprilFools()) return "April Fools";
