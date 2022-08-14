@@ -6,23 +6,24 @@ import isLunarNewYear from "./functions/isLunarNewYear";
 import isNewYear from "./functions/isNewYear";
 import isValentine from "./functions/isValentine";
 
-export type SeasonalEvents =
-	| "New Year's Day"
-	| "Lunar New Year"
-	| "Valentine's Day"
-	| "Easter"
-	| "April Fools"
-	| "Halloween"
-	| "Christmas"
-	| "None";
+export enum SeasonalEvents {
+	NewYear = "New Year's Day",
+	LunarNewYear = "Lunar New Year",
+	Valentine = "Valentine's Day",
+	Easter = "Easter",
+	AprilFools = "April Fools",
+	Halloween = "Halloween",
+	Christmas = "Christmas",
+	None = "None"
+}
 
 export function getSeasonalBranding(): SeasonalEvents {
-	if (isNewYear()) return "New Year's Day";
-	if (isLunarNewYear()) return "Lunar New Year";
-	if (isValentine()) return "Valentine's Day";
-	if (isEaster()) return "Easter";
-	if (isAprilFools()) return "April Fools";
-	if (isHalloween()) return "Halloween";
-	if (isChristmas()) return "Christmas";
-	return "None";
+	if (isNewYear()) return SeasonalEvents.NewYear;
+	if (isLunarNewYear()) return SeasonalEvents.LunarNewYear;
+	if (isValentine()) return SeasonalEvents.Valentine;
+	if (isEaster()) return SeasonalEvents.Easter;
+	if (isAprilFools()) return SeasonalEvents.AprilFools;
+	if (isHalloween()) return SeasonalEvents.Halloween;
+	if (isChristmas()) return SeasonalEvents.Christmas;
+	return SeasonalEvents.None;
 }

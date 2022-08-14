@@ -1,6 +1,6 @@
 {
 	"name": "@recodive/seasonal-branding",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"main": "bin/index.js",
 	"types": "bin/index.d.ts",
 	"repository": "https://github.com/Recodive/Seasonal-Branding.git",
@@ -23,7 +23,7 @@
 		"typescript": "^4.7.4"
 	},
 	"dependencies": {
-		"date-chinese": "^2.1.4",
+		"date-chinese": "2.1.3",
 		"source-map-support": "^0.5.21"
 	}
 }

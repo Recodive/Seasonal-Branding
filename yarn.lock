@@ -843,7 +843,7 @@ argparse@^1.0.7:
   dependencies:
     sprintf-js "~1.0.2"
 
-astronomia@^4.1.0:
+astronomia@^4.0.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/astronomia/-/astronomia-4.1.1.tgz#9ad4d3cd1dc8135b7c9e5cee37cb77160ee7af7f"
   integrity sha512-TcJD9lUC5eAo0/Ji7rnQauX/yQbi0yZWM+JsNr77W3OA5fsrgvuFgubLMFwfw4VlZ29cu9dG/yfJbfvuTSftjg==
@@ -1118,12 +1118,12 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-date-chinese@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/date-chinese/-/date-chinese-2.1.4.tgz#f471af3b72525b6005a16ec4e544a53b28c8e656"
-  integrity sha512-WY+6+Qw92ZGWFvGtStmNQHEYpNa87b8IAQ5T8VKt4wqrn24lBXyyBnWI5jAIyy7h/KVwJZ06bD8l/b7yss82Ww==
+date-chinese@2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/date-chinese/-/date-chinese-2.1.3.tgz#60d1ffb3631c3980f420873c4888b3380bc65d84"
+  integrity sha512-g1YSDAY01sBLu5NfjpnhXGZu9xoC1xtEKHlCHQNYUIivz85Iea7WBzGPKUIBPfyejZ6x2YA64HSbTYjmzq2Yew==
   dependencies:
-    astronomia "^4.1.0"
+    astronomia "^4.0.1"
 
 debug@4, debug@^4.1.0, debug@^4.1.1:
   version "4.3.3"
