@@ -1,5 +1,19 @@
-export default function isEaster() {
-	const year = new Date().getUTCFullYear(),
+import { DateTime } from "luxon";
+
+import { SeasonalOptions } from "..";
+
+export default function isEaster(options?: SeasonalOptions) {
+	const now = DateTime.now();
+	let startDate = DateTime.now(),
+		endDate = DateTime.now();
+
+	if (options?.dateOptions?.zone) {
+		now.setZone(options.dateOptions.zone, options.dateOptions.zoneOptions);
+		startDate.setZone(options.dateOptions.zone, options.dateOptions.zoneOptions);
+		endDate.setZone(options.dateOptions.zone, options.dateOptions.zoneOptions);
+	}
+
+	const year = now.year,
 		c = Math.floor(year / 100),
 		n = year - 19 * Math.floor(year / 19),
 		k = Math.floor((c - 17) / 25);
@@ -10,13 +24,14 @@ export default function isEaster() {
 	j = j - 7 * Math.floor(j / 7);
 	const l = i - j,
 		month = 3 + Math.floor((l + 40) / 44),
-		day = l + 28 - 31 * Math.floor(month / 4),
-		date = new Date(`${year}-${month}-${day}`),
-		start = new Date(date),
-		end = new Date(date);
-	start.setDate(date.getDate() - 7);
-	end.setDate(date.getDate() + 1);
+		day = l + 28 - 31 * Math.floor(month / 4);
 
-	if (new Date().getTime() > start.getTime() && new Date().getTime() < end.getTime()) return true;
+	startDate = startDate.set({ year, month, day, hour: 0, minute: 0, second: 0, millisecond: 0 });
+	endDate = endDate.set({ year, month, day, hour: 23, minute: 59, second: 59, millisecond: 999 });
+
+	startDate = startDate.minus({ days: 7 });
+	endDate = endDate.plus({ days: 1 });
+
+	if (now.toMillis() >= startDate.toMillis() && now.toMillis() <= endDate.toMillis()) return true;
 	else return false;
 }

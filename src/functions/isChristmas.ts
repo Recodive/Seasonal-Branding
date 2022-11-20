@@ -1,5 +1,10 @@
-export default function isChristmas() {
-	const now = new Date();
+import { DateTime } from "luxon";
 
-	return now.getUTCMonth() === 11 && now.getUTCDate() >= 11 && now.getUTCDate() <= 29;
+import { SeasonalOptions } from "..";
+
+export default function isChristmas(options?: SeasonalOptions) {
+	const now = DateTime.now();
+	if (options?.dateOptions?.zone) now.setZone(options.dateOptions.zone, options.dateOptions.zoneOptions);
+
+	return now.month === 12 && now.day >= 11 && now.day <= 29;
 }

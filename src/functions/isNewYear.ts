@@ -1,5 +1,10 @@
-export default function isNewYear() {
-	const now = new Date();
+import { DateTime } from "luxon";
 
-	return (now.getUTCMonth() === 11 && now.getUTCDate() >= 30) || (now.getUTCMonth() === 0 && now.getUTCDate() <= 2);
+import { SeasonalOptions } from "..";
+
+export default function isNewYear(options?: SeasonalOptions) {
+	const now = DateTime.now();
+	if (options?.dateOptions?.zone) now.setZone(options.dateOptions.zone, options.dateOptions.zoneOptions);
+
+	return (now.month === 12 && now.day >= 30) || (now.month === 1 && now.day <= 2);
 }

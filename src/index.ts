@@ -1,3 +1,5 @@
+import { Zone, ZoneOptions } from "luxon";
+
 import isAprilFools from "./functions/isAprilFools";
 import isChristmas from "./functions/isChristmas";
 import isEaster from "./functions/isEaster";
@@ -17,13 +19,20 @@ export enum SeasonalEvents {
 	None = "None"
 }
 
-export function getSeasonalBranding(): SeasonalEvents {
-	if (isNewYear()) return SeasonalEvents.NewYear;
-	if (isLunarNewYear()) return SeasonalEvents.LunarNewYear;
-	if (isValentine()) return SeasonalEvents.Valentine;
-	if (isEaster()) return SeasonalEvents.Easter;
-	if (isAprilFools()) return SeasonalEvents.AprilFools;
-	if (isHalloween()) return SeasonalEvents.Halloween;
-	if (isChristmas()) return SeasonalEvents.Christmas;
+export function getSeasonalBranding(options?: SeasonalOptions): SeasonalEvents {
+	if (isNewYear(options)) return SeasonalEvents.NewYear;
+	if (isLunarNewYear(options)) return SeasonalEvents.LunarNewYear;
+	if (isValentine(options)) return SeasonalEvents.Valentine;
+	if (isEaster(options)) return SeasonalEvents.Easter;
+	if (isAprilFools(options)) return SeasonalEvents.AprilFools;
+	if (isHalloween(options)) return SeasonalEvents.Halloween;
+	if (isChristmas(options)) return SeasonalEvents.Christmas;
 	return SeasonalEvents.None;
+}
+
+export interface SeasonalOptions {
+	dateOptions?: {
+		zone?: string | Zone;
+		zoneOptions?: ZoneOptions;
+	};
 }

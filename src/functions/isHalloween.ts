@@ -1,5 +1,10 @@
-export default function isHalloween() {
-	const now = new Date();
+import { DateTime } from "luxon";
 
-	return (now.getUTCMonth() === 9 && now.getUTCDate() >= 24) || (now.getUTCMonth() === 10 && now.getUTCDate() <= 1);
+import { SeasonalOptions } from "..";
+
+export default function isHalloween(options?: SeasonalOptions) {
+	const now = DateTime.now();
+	if (options?.dateOptions?.zone) now.setZone(options.dateOptions.zone, options.dateOptions.zoneOptions);
+
+	return (now.month === 10 && now.day >= 24) || (now.month === 11 && now.day <= 1);
 }
